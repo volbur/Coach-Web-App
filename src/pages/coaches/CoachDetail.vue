@@ -1,3 +1,4 @@
 <template>
-  <h2>CoachDetail.vue</h2>
+  <p>DETAILS FOR COACH CONTACT A COACH</p>
+  <button>contact</button>
 </template>

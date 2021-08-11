@@ -6,17 +6,25 @@
     <router-link custom v-slot="{ navigate }" :to="{ name: 'register' }">
       <button @click="navigate" class="register-btn">Register as Coach</button>
     </router-link>
-    <ul v-if="hasCoaches">
-      <li v-for="coach in filteredCoaches" :key="coach.id">
-        {{ coach.firstName }}
-      </li>
+
+    <ul class="list-coaches" v-if="hasCoaches">
+      <CoachItem
+        v-for="coach in filteredCoaches"
+        :coach="coach"
+        :key="coach.id"
+      />
     </ul>
     <h3 v-else>No coaches found</h3>
   </section>
 </template>
 
 <script>
+import CoachItem from '../../components/coaches/CoachItem.vue';
+
 export default {
+  components: {
+    CoachItem,
+  },
   computed: {
     hasCoaches() {
       return this.$store.getters['coaches/hasCoaches'];
@@ -27,3 +35,15 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.list-coaches {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.list-coaches {
+  margin-top: 30px;
+}
+</style>
