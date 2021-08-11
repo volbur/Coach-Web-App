@@ -1,20 +1,22 @@
 <template>
   <section>FILTER</section>
   <section>
-    <button class="refresh-btn">Refresh</button>
-
-    <router-link custom v-slot="{ navigate }" :to="{ name: 'register' }">
-      <button @click="navigate" class="register-btn">Register as Coach</button>
-    </router-link>
-
-    <ul class="list-coaches" v-if="hasCoaches">
-      <CoachItem
-        v-for="coach in filteredCoaches"
-        :coach="coach"
-        :key="coach.id"
-      />
-    </ul>
-    <h3 v-else>No coaches found</h3>
+    <BaseCard>
+      <div class="controls">
+        <BaseButton mode="outline">Refresh</BaseButton>
+        <BaseButton to="{ name: 'register' }" link
+          >Register as Coach</BaseButton
+        >
+      </div>
+      <ul class="list-coaches" v-if="hasCoaches">
+        <CoachItem
+          v-for="coach in filteredCoaches"
+          :coach="coach"
+          :key="coach.id"
+        />
+      </ul>
+      <h3 v-else>No coaches found</h3>
+    </BaseCard>
   </section>
 </template>
 
@@ -37,6 +39,11 @@ export default {
 </script>
 
 <style scoped>
+.controls {
+  display: flex;
+  justify-content: space-between;
+}
+
 .list-coaches {
   margin: 0;
   padding: 0;

@@ -2,21 +2,24 @@
   <li class="list-coach">
     <h2>{{ fullName }}</h2>
     <p>${{ coach.hourlyRate }}/hour</p>
-    <ul class="list-areas">
-      <li v-for="area in coach.areas" :key="area">
-        <span>{{ area }}</span>
+    <div class="list-areas">
+      <BaseBadge
+        v-for="area in coach.areas"
+        :key="area"
+        :area="area"
+      ></BaseBadge>
+    </div>
+
+    <ul class="actions">
+      <li>
+        <BaseButton mode="outline" link :to="coachContactLink"
+          >Contact</BaseButton
+        >
+      </li>
+      <li>
+        <BaseButton link :to="coachDetailsLink">View Details</BaseButton>
       </li>
     </ul>
-
-    <div class="actions">
-      <router-link custom v-slot="{ navigate }" :to="coachContactLink">
-        <button @click="navigate">Contact</button>
-      </router-link>
-
-      <router-link custom v-slot="{ navigate }" :to="coachDetailsLink">
-        <button @click="navigate">View Details</button>
-      </router-link>
-    </div>
   </li>
 </template>
 
@@ -44,9 +47,7 @@ export default {
 
 <style scoped>
 .list-areas {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+  margin-bottom: 20px;
 }
 
 .list-coach {
@@ -62,5 +63,17 @@ export default {
 
 .list-areas {
   display: flex;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.actions li {
+  margin: 0 5px;
 }
 </style>
