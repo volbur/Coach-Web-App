@@ -6,7 +6,7 @@
     <BaseCard>
       <div class="controls">
         <BaseButton mode="outline">Refresh</BaseButton>
-        <BaseButton to="{ name: 'register' }" link
+        <BaseButton :to="{ name: 'register' }" link
           >Register as Coach</BaseButton
         >
       </div>
