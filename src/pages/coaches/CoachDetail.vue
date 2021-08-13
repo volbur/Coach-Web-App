@@ -9,6 +9,7 @@
     <BaseCard>
       <p>Interested? Reach out now!</p>
       <BaseButton :to="contactLink" link>Contact</BaseButton>
+      <router-view></router-view>
     </BaseCard>
   </section>
   <section>
