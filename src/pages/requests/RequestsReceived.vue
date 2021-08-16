@@ -4,7 +4,7 @@
     <div v-if="hasRequests">
       <RequestItem
         v-for="requests in receivedRequests"
-        :key="requests"
+        :key="requests.id"
         :text="requests.message"
         :email="requests.userEmail"
       />
