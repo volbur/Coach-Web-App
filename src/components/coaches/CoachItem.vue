@@ -25,12 +25,7 @@
 
 <script>
 export default {
-  props: {
-    coach: {
-      type: Object,
-      requred: false,
-    },
-  },
+  props: ['id', 'firstName', 'lastName', 'rate', 'areas'],
   computed: {
     fullName() {
       return this.coach.firstName + ' ' + this.coach.lastName;
